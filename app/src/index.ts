@@ -1,6 +1,6 @@
 'use strict';
 
-import {PostRenderer} from "./ui/generators/PostRenderer";
+import {PostRenderer} from "./ui/renderers/PostRenderer";
 import {Submission} from "snoowrap";
 
 const snoowrap = require('snoowrap');
@@ -15,11 +15,13 @@ const r = new snoowrap ({
 
 function main() {
 
+    let renderer = new PostRenderer();
+
     r.getSubreddit("teenagers").getNew()
     .then ((posts: Submission[]) => {
 
         posts.forEach ((post: Submission) => {
-            document.getElementById("main").appendChild(PostRenderer.renderPost(post))
+            document.getElementById("main").appendChild(renderer.renderElement(post))
         })
 
     });
