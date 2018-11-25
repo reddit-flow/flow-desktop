@@ -63,3 +63,7 @@ typings/
 # idea files
 .idea/
 *.iml
+
+# source js
+
+app/src/*.js

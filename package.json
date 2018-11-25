@@ -1,27 +1,36 @@
 {
-  "main": "./app/index.html",
-
+  "main": "app/src/index.html",
   "window": {
     "frame": false,
     "toolbar": false
   },
-
   "name": "flow-client-desktop",
   "version": "0.0.0",
-
   "private": true,
-
   "scripts": {
-    "start": "nw"
+    "start": "set NODE_ENV=production && webpack --config ./webpack.prod.config.js && nw .",
+    "start:dev": "set NODE_ENV=development && webpack --config ./webpack.dev.config.js && nw-sdk ."
   },
-
   "dependencies": {
+    "@types/bluebird": "^3.5.24",
+    "@types/riot": "^3.6.1",
+    "@types/snoowrap": "^1.16.1",
+    "bluebird": "^3.5.3",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.9",
+    "dotenv-webpack": "^1.5.7",
     "express": "~4.16.0",
     "http-errors": "~1.6.2",
     "morgan": "~1.9.0",
     "nw": "^0.34.4",
-    "pug": "2.0.0-beta11"
+    "pug": "2.0.0-beta11",
+    "riot": "^3.13.1",
+    "snoowrap": "^1.15.2"
+  },
+  "devDependencies": {
+    "ts-loader": "^5.3.0",
+    "typescript": "^3.1.6",
+    "webpack": "^4.26.0",
+    "webpack-cli": "^3.1.2"
   }
 }

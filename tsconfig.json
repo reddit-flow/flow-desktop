@@ -1,1 +1,18 @@
-{}
+{
+    "compilerOptions": {
+        "outDir": "./dist/",
+        "sourceMap": true,
+        "noImplicitAny": true,
+        "module": "commonjs",
+        "lib": ["es5", "es6", "dom"],
+        "target": "es6",
+        "allowJs": false
+    },
+    "compileOnSave": true,
+    "include": [
+        "app/src/**/*"
+    ],
+    "exclude": [
+        "node_modules"
+    ]
+}
