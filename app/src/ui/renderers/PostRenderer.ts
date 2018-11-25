@@ -1,24 +1,27 @@
 import {Submission} from 'snoowrap';
+import {AbstractRenderer} from "./AbstractRenderer";
 
-export class PostRenderer {
+export class PostRenderer extends AbstractRenderer<Submission, HTMLDivElement> {
 
-    static renderPost(post: Submission): HTMLDivElement {
+    public renderElement(post: Submission): HTMLDivElement {
 
-        let returnElement = <HTMLDivElement>(document.createElement('div'));
-        returnElement.className = 'post-header';
+        this.returnElement = <HTMLDivElement>(document.createElement('div'));
+        this.returnElement.className = 'post-header';
 
         let headerContent = <HTMLDivElement>(document.createElement('div'))
         headerContent.className = 'post-header-content';
 
-        returnElement.appendChild(this.renderVotes(post.score, true, false));
-        returnElement.appendChild(this.renderFirstLine(post))
-        returnElement.appendChild(this.renderSecondLine(post))
+        this.returnElement.appendChild(this.renderVotes(post.score, true, false));
+        this.returnElement.appendChild(this.renderFirstLine(post))
+        this.returnElement.appendChild(this.renderSecondLine(post))
 
-        return returnElement;
+        this.applyStylesheet('./PostStylesheet.css')
+
+        return this.returnElement;
 
     }
 
-    private static renderFirstLine(post: Submission): HTMLElement {
+    private renderFirstLine(post: Submission): HTMLElement {
 
         let returnElement = <HTMLDivElement>(document.createElement('div'));
         returnElement.className = 'post-header-line3';
@@ -34,7 +37,7 @@ export class PostRenderer {
 
     }
 
-    private static renderSecondLine(post: Submission): HTMLElement {
+    private renderSecondLine(post: Submission): HTMLElement {
 
         let returnElement = <HTMLDivElement>(document.createElement('div'));
         returnElement.className = 'post-header-line2';
@@ -43,11 +46,11 @@ export class PostRenderer {
 
     }
 
-    private static renderButtons(post: Submission) {
+    private renderButtons(post: Submission) {
 
     }
 
-    private static renderVotes(score: number, hasUpvoted: boolean, hasDownvoted: boolean): HTMLDivElement {
+    private renderVotes(score: number, hasUpvoted: boolean, hasDownvoted: boolean): HTMLDivElement {
 
         let returnElement = <HTMLDivElement>(document.createElement('div'));
         returnElement.className = 'votes';
@@ -82,7 +85,7 @@ export class PostRenderer {
 
     }
 
-    private static renderTitle(title: string) {
+    private renderTitle(title: string) {
 
         let returnElement = <HTMLSpanElement>(document.createElement('span'));
         returnElement.className = 'post-title';
