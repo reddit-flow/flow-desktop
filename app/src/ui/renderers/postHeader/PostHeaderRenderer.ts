@@ -1,7 +1,12 @@
 import {Submission} from 'snoowrap';
-import {AbstractRenderer} from "./AbstractRenderer";
 
-export class PostRenderer extends AbstractRenderer<Submission, HTMLDivElement> {
+import {AbstractRenderer} from "../AbstractRenderer";
+
+import * as upvoteImagePath   from './img/upvote.svg';
+import * as downvoteImagePath from './img/downvote.svg';
+import * as clockImagePath    from './img/clock.svg';
+
+export class PostHeaderRenderer extends AbstractRenderer<Submission, HTMLDivElement> {
 
     public renderElement(post: Submission): HTMLDivElement {
 
@@ -12,8 +17,11 @@ export class PostRenderer extends AbstractRenderer<Submission, HTMLDivElement> {
         headerContent.className = 'post-header-content';
 
         this.returnElement.appendChild(this.renderVotes(post.score, true, false));
-        this.returnElement.appendChild(this.renderFirstLine(post))
-        this.returnElement.appendChild(this.renderSecondLine(post))
+
+        headerContent.appendChild(this.renderFirstLine(post))
+        headerContent.appendChild(this.renderSecondLine(post))
+
+        this.returnElement.appendChild(headerContent)
 
         this.applyStylesheet('./PostStylesheet.css')
 
@@ -24,14 +32,17 @@ export class PostRenderer extends AbstractRenderer<Submission, HTMLDivElement> {
     private renderFirstLine(post: Submission): HTMLElement {
 
         let returnElement = <HTMLDivElement>(document.createElement('div'));
-        returnElement.className = 'post-header-line3';
+        returnElement.className = 'post-header-line1';
 
         let clockImage = <HTMLImageElement>(document.createElement('img'));
         clockImage.className = 'clock-icon';
 
         let timeSpan = <HTMLSpanElement>(document.createElement('span'));
-        timeSpan.className = 'post-time'
-        timeSpan.innerText = post.selftext
+        timeSpan.className = 'post-time';
+        timeSpan.innerText = post.created_utc.toString();
+
+        returnElement.appendChild(clockImage);
+        returnElement.appendChild(timeSpan);
 
         return returnElement
 
@@ -41,6 +52,8 @@ export class PostRenderer extends AbstractRenderer<Submission, HTMLDivElement> {
 
         let returnElement = <HTMLDivElement>(document.createElement('div'));
         returnElement.className = 'post-header-line2';
+
+        returnElement.appendChild(this.renderTitle(post.title))
 
         return returnElement
 
@@ -59,7 +72,7 @@ export class PostRenderer extends AbstractRenderer<Submission, HTMLDivElement> {
 
         let upvoteImage = <HTMLImageElement>(document.createElement('img'));
         upvoteImage.className = 'upvote-button'
-        upvoteImage.src = 'image/svg/upvote.svg';
+        upvoteImage.src = upvoteImagePath;
         upvoteImage.width = 35;
 
         // Generate text div
@@ -72,7 +85,7 @@ export class PostRenderer extends AbstractRenderer<Submission, HTMLDivElement> {
 
         let downvoteImage = <HTMLImageElement>(document.createElement('img'));
         downvoteImage.className = 'downvote-button'
-        downvoteImage.src = 'image/svg/downvote.svg';
+        downvoteImage.src = downvoteImagePath;
         downvoteImage.width = 35;
 
         // Append children
