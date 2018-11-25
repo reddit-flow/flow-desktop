@@ -2,12 +2,13 @@ const path = require('path');
 
 module.exports = {
     target: "node-webkit",
-    entry: './app/src/index.js',
+    entry: './app/src/index.ts',
     devtool: 'source-map',
     module: {
         rules: [
             { test: /\.tsx?$/, use: 'ts-loader', exclude: /node_modules/},
-            { test: /\.css$/, use: 'css-loader'}
+            { test: /\.css$/, use: 'css-loader'},
+            { test: /\.(png|jpg|gif|svg)$/, use: [{loader: 'url-loader', options: {}}]}
         ]
     },
     resolve: {
