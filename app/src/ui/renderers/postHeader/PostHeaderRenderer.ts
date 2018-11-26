@@ -1,6 +1,6 @@
 import {Submission} from 'snoowrap';
 
-import {AbstractRenderer}      from "../AbstractRenderer";
+import {AbstractRenderer} from "../AbstractRenderer";
 
 import * as postHeaderTemplate from './PostHeaderTemplate.dot';
 
