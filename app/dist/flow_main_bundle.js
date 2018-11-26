@@ -102,11 +102,11 @@ const snoowrap = __webpack_require__(/*! snoowrap */ "./node_modules/snoowrap/di
 const fs = __webpack_require__(/*! fs */ "fs");
 const path = __webpack_require__(/*! path */ "path");
 console.log("test");
-console.log(path.dirname(process.execPath));
-console.log(path.join(path.dirname(process.execPath), "credentials.json"));
-console.log(fs.readFileSync(path.join(path.dirname(process.execPath), "credentials.json")));
-console.log(JSON.parse(fs.readFileSync(path.join(path.dirname(process.execPath), "credentials.json"))));
-const r = new snoowrap(JSON.parse(fs.readFileSync(path.join(path.dirname(process.execPath), "credentials.json"))));
+console.log(process.cwd());
+console.log(path.join(process.cwd(), "credentials.json"));
+console.log(fs.readFileSync(path.join(process.cwd(), "credentials.json")));
+console.log(JSON.parse(fs.readFileSync(path.join(process.cwd(), "credentials.json"))));
+const r = new snoowrap(JSON.parse(fs.readFileSync(path.join(process.cwd(), "credentials.json"))));
 function main() {
     let renderer = new PostHeaderRenderer_1.PostHeaderRenderer();
     r.getSubreddit("teenagers").getNew()

@@ -10,13 +10,9 @@ const fs = require('fs');
 
 const path = require('path');
 
-console.log("test");
-console.log(path.dirname(process.execPath));
-console.log(path.join(path.dirname(process.execPath), "credentials.json"));
-console.log(fs.readFileSync(path.join(path.dirname(process.execPath), "credentials.json")));
-console.log(JSON.parse(fs.readFileSync(path.join(path.dirname(process.execPath), "credentials.json"))));
+console.log(JSON.parse(fs.readFileSync(path.join(process.cwd(), "credentials.json"))));
 
-const r = new snoowrap (JSON.parse(fs.readFileSync(path.join(path.dirname(process.execPath), "credentials.json"))));
+const r = new snoowrap (JSON.parse(fs.readFileSync(path.join(process.cwd(), "credentials.json"))));
 
 function main() {
 
