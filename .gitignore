@@ -65,5 +65,7 @@ typings/
 *.iml
 
 # source js
-
 app/src/*.js
+
+# User credentials
+app/src/credentials.json
