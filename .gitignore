@@ -65,5 +65,10 @@ typings/
 *.iml
 
 # source js
-
 app/src/*.js
+
+# webpack bundle
+dist/
+
+# User credentials
+credentials.json

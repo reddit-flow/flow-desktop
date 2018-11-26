@@ -6,13 +6,13 @@ import {Submission} from "snoowrap";
 
 const snoowrap = require('snoowrap');
 
-const r = new snoowrap ({
-    userAgent: 'flow-reddit-desktop-0.0.1',
-    clientId: 'CLIENT_ID_HERE',
-    clientSecret: 'CLIENT_SECRET_HERE',
-    username: 'REDDIT_USER_HERE',
-    password: 'REDDIT_PASS_HERE'
-})
+const fs = require('fs');
+
+const path = require('path');
+
+console.log(JSON.parse(fs.readFileSync(path.join(process.cwd(), "credentials.json"))));
+
+const r = new snoowrap (JSON.parse(fs.readFileSync(path.join(process.cwd(), "credentials.json"))));
 
 function main() {
 
