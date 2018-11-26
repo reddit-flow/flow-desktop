@@ -2,15 +2,33 @@ import {Submission} from 'snoowrap';
 
 import {AbstractRenderer} from "../AbstractRenderer";
 
-import * as upvoteImagePath   from './img/upvote.svg';
-import * as downvoteImagePath from './img/downvote.svg';
-import * as clockImagePath    from './img/clock.svg';
+import * as postHeaderTemplate from './PostHeaderTemplate.dot';
+
+import * as upvoteImagePath    from './img/upvote.svg';
+import * as downvoteImagePath  from './img/downvote.svg';
+import * as clockImagePath     from './img/clock.svg';
 
 export class PostHeaderRenderer extends AbstractRenderer<Submission, HTMLDivElement> {
 
-    public renderElement(post: Submission): HTMLDivElement {
+    public renderElement(post: Submission): Element {
 
-        this.returnElement = <HTMLDivElement>(document.createElement('div'));
+        let returnElement = document.createElement('div');
+
+        returnElement.innerHTML = postHeaderTemplate (
+            {
+                'uvi_path':   upvoteImagePath,
+                'dvi_path':   downvoteImagePath,
+                'cli_path':   clockImagePath,
+                'post_score': post.score,
+                'post_time':  post.created_utc,
+                'post_user':  post.author.name,
+                'post_title': post.title
+            }
+        );
+
+        return returnElement.firstElementChild
+
+        /*this.returnElement = <HTMLDivElement>(document.createElement('div'));
         this.returnElement.className = 'post-header';
 
         let headerContent = <HTMLDivElement>(document.createElement('div'))
@@ -25,7 +43,9 @@ export class PostHeaderRenderer extends AbstractRenderer<Submission, HTMLDivElem
 
         this.applyStylesheet('./PostStylesheet.css')
 
-        return this.returnElement;
+        return this.returnElement;*/
+
+        return <HTMLDivElement>(document.createElement('div'))
 
     }
 

@@ -1,0 +1,20 @@
+<div class="post-header">
+    <div class="votes">
+        <img class="upvote-button" src="{{=it.uvi_path}}" width="35">
+        <div class="vote-counter">{{=it.post_score}}</div>
+        <img class="downvote-button" src="{{=it.dvi_path}}" width="35">
+    </div>
+
+    <div class="post-header-content">
+        <div class="post-header-line1">
+            <img class="clock-icon" src="{{=it.cli_path}}">
+            <span class="post-time">{{=it.post_time}}</span>
+            <span class="post-user">{{=it.post_user}}</span>
+        </div>
+
+        <div class="post-header-line2">
+            <span class="post-title">{{=it.post_title}}</span>
+        </div>
+    </div>
+
+</div>
