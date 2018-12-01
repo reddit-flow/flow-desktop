@@ -1,0 +1,44 @@
+#main-topbar {
+    display: grid;
+    grid-template-columns: 5em auto auto;
+    align-content: center;
+
+    /*noinspection CssUnresolvedCustomProperty*/
+    background-color: var(--default-background-color);
+}
+
+#subreddit-icon-container {
+    text-align: center;
+}
+
+#subreddit-icon {
+    height: 2em;
+    width: 2em;
+    display: inline-block;
+}
+
+#subreddit-info {
+    display: flex;
+    align-items: center;
+}
+
+#subreddit-name-topbar {
+    font-size: 1.5em;
+    font-weight: bold;
+
+    display: inline-block;
+}
+
+#subreddit-sorting-label {
+    margin-left: 1em;
+
+    display: inline-block;
+}
+
+#subreddit-sorting {
+    margin-left: 0.5em;
+
+    font-weight: bold;
+
+    display: inline-block;
+}

@@ -1,0 +1,8 @@
+#main-container {
+    display: grid;
+    grid-template-rows: 3.5em auto; /* If you change these values, make sure to change resizeContainers in window.ts as well*/
+    grid-row-gap: 0.05em;
+
+    /*noinspection CssUnresolvedCustomProperty*/
+    background-color: var(--default-separator-color);
+}

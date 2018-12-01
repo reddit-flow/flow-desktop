@@ -1,8 +1,14 @@
 'use strict';
 
-import {PostHeaderRenderer} from "./ui/renderers/postHeader/PostHeaderRenderer";
+import {Listing, Submission, Subreddit} from "snoowrap";
 
-import {Submission} from "snoowrap";
+import {FlowUI} from "./ui/FlowUI";
+import {MainContainerPane} from "./ui/renderers/mainPane/mainContainerPane/MainContainerPane";
+import {Component} from "./ui/Component";
+
+import * as Collections from 'typescript-collections';
+import {PostHeader} from "./ui/renderers/mainPane/postHeader/PostHeader";
+import {MainContentPane} from "./ui/renderers/mainPane/mainContentPane/MainContentPane";
 
 const snoowrap = require('snoowrap');
 
@@ -16,16 +22,24 @@ const r = new snoowrap (JSON.parse(fs.readFileSync(path.join(process.cwd(), "cre
 
 function main() {
 
-    let renderer = new PostHeaderRenderer();
+    r.getSubreddit('teenagers').fetch().then((it: Subreddit) => {
+        FlowUI.addChild(new MainContainerPane(it))
+        FlowUI.mountToElement(document.getElementById('main'))
 
-    r.getSubreddit("teenagers").getNew()
-    .then ((posts: Submission[]) => {
+        r.getSubreddit('teenagers').getNew().then((it: Listing<Submission>) => {
+            it.forEach((it: Submission) => {
+                ((FlowUI.children[0]).children.elementAtIndex(1) as MainContentPane).addPost(it)
+            })
 
-        posts.forEach ((post: Submission) => {
-            document.getElementById("main").appendChild(renderer.renderElement(post))
+            FlowUI.children[0].update(true)
+
+            document.getElementById('main').innerHTML = ''
+            FlowUI.mountToElement(document.getElementById('main'))
         })
 
-    });
+    })
+
+
 }
 
 document.getElementById("load").onclick = main

@@ -1,0 +1,145 @@
+.post-header {
+
+    /* Variables for posts */
+
+    --post-vote-count-color: #939393;
+    --post-header-text-color: #555555;
+    --post-header-background-color: #E1E1E1;
+
+    display: grid;
+    margin-bottom: 0.5em;
+    grid-template-columns: 5em auto;
+}
+
+.votes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.upvote-button {}
+
+.vote-counter {
+    text-align: center;
+
+    color: var(--post-vote-count-color);
+
+    font-weight: bold;
+    font-size: 1.5em;
+
+    line-height: 1.6em;
+}
+
+.downvote-button {}
+
+.post-header-content {
+    padding: 1em 1.2em;
+    border-radius: 0.5em;
+
+    color: var(--post-header-text-color);
+    background-color: var(--post-header-background-color) !important;
+
+    display: grid;
+    grid-template-rows: auto;
+    grid-row-gap: 0.2em;
+    align-content: center;
+}
+
+.post-header-line1 {
+
+    /* Variables for post header line 1 */
+
+    --post-header-spacing: 1em;
+
+    --post-time-spacing: 0.8em;
+    --post-time-divider-color: #565656;
+    --post-time-text-color: #656565;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+
+    background-color: var(--post-header-background-color);
+}
+
+.clock-icon {
+    display: inline;
+    height: 1em;
+}
+
+.post-time {
+    border-right: 0.05em solid var(--post-time-divider-color);;
+    margin-left: 0.3em;
+    padding-right: var(--post-time-spacing);
+
+    color: var(--post-time-text-color);
+    font-weight: bold;
+}
+
+.post-user {
+    padding-left: var(--post-time-spacing);
+
+    color: #7f7f7f;
+}
+
+.user-flair {
+    margin-left: 0.4em;
+
+    padding: 0.1em 0.3em;
+    border-radius: 0.3em;
+
+    color: #ffffff;
+    background-color: #7f7f7f;
+}
+
+.post-header-line2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+
+    background-color: var(--post-header-background-color);
+}
+
+.post-title {
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.post-flair {
+    padding: 0.4em 0.7em;
+    border-radius: 0.3em;
+
+    font-size: 0.8em;
+    font-weight: bold;
+
+    color: #ffffff;
+    background-color: #BD003A;
+}
+
+.post-header-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+
+    background-color: var(--post-header-background-color);
+}
+
+.post-header-button {
+    display: inline-block;
+
+    color: var(--post-header-text-color);
+
+    margin-left: 0.5em;
+}
+
+.post-header-button:nth-child(1) {
+    margin-left: 0;
+}
+
+.post-header-button-first {
+    margin-right: auto;
+}

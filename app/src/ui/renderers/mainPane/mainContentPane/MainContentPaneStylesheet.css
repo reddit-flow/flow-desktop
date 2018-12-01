@@ -1,0 +1,7 @@
+#main-content {
+    overflow-y: scroll;
+    max-height: 800px;
+
+    /*noinspection CssUnresolvedCustomProperty*/
+    background-color: var(--default-background-color);
+}

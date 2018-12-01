@@ -1,0 +1,10 @@
+<div id="main-topbar">
+    <span id="subreddit-icon-container">
+        <img id="subreddit-icon" src="{{=it.sbi_path}}">
+    </span>
+    <div id="subreddit-info">
+        <span id="subreddit-name-topbar">{{=it.subreddit_text}}</span>
+        <span id="subreddit-sorting-label"> {{=it.sorted_by_label}}</span>
+        <span id="subreddit-sorting">{{=it.sorted_by_value}}</span>
+    </div>
+</div>

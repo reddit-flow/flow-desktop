@@ -6,8 +6,8 @@ module.exports = {
     module: {
         rules: [
             { test: /\.tsx?$/, use: 'ts-loader', exclude: /node_modules/},
-            { test: /\.css$/, use: 'css-loader'},
-            { test: /\.(png|jpg|gif|svg)$/, use: [{loader: 'url-loader', options: {}}]}
+            { test: /\.css$/, use: 'typings-for-css-modules-loader'},
+            { test: /\.(png|jpg|gif|svg)$/, use: [{loader: 'url-loader', options: {}}]},
             { test: /\.dot$/, loader: "dot-loader", options: {}}
         ]
     },

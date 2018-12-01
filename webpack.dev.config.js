@@ -7,7 +7,11 @@ module.exports = {
     module: {
         rules: [
             { test: /\.tsx?$/, use: 'ts-loader', exclude: /node_modules/},
-            { test: /\.css$/, use: 'css-loader'},
+            { test: /\.css$/,
+                use: [
+                    { loader: 'typings-for-css-modules-loader', options: {'modules': true, 'localIdentName': '[local]'} },
+                ]
+            },
             { test: /\.(png|jpg|gif|svg)$/, use: [{loader: 'url-loader', options: {}}]},
             { test: /\.dot$/, loader: "dot-loader", options: {}}
         ]
