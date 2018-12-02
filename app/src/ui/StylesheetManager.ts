@@ -26,6 +26,31 @@ export class StylesheetManager {
     }
 
     /**
+     * Mount a stylesheet in a <style></style> tag in the document head.
+     *
+     * @param id                 the id that the mounted stylesheet should have
+     * @param importedStylesheet the stylesheet to mount
+     *
+     * @returns boolean whether the stylesheet was mounted
+     */
+    public static mountGlobalStylesheetIfAbsent(id: string, importedStylesheet: any): boolean {
+        if (document.getElementById(id) == null) {
+
+            let stylesheet = document.createElement("style");
+
+            stylesheet.className = "flow-global-stylesheet";
+            stylesheet.id = id;
+
+            stylesheet.innerHTML = (importedStylesheet[0])[1]
+
+            document.head.appendChild(stylesheet)
+
+            return true;
+        }
+        return false;
+    }
+
+    /**
      * Update a stylesheet for a certain component in a <style></style> tag in the document head.
      *
      * @param compClassName      the class for which the stylesheet should be updated

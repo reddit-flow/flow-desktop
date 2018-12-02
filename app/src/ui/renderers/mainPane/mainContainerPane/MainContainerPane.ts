@@ -8,7 +8,6 @@ import * as mainContentPaneTemplate from "./MainContainerPaneTemplate.dot";
 
 import * as style from './MainContainerPaneStylesheet.css'
 
-
 export class MainContainerPane extends Component {
 
     private _topBar: MainTopBar;

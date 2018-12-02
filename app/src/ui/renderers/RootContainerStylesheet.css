@@ -1,0 +1,8 @@
+#container {
+    display: grid;
+    grid-template-columns: 400px auto;
+    grid-template-rows: auto;
+    grid-column-gap: 0.05em;
+
+    background-color: var(--default-separator-color);
+}

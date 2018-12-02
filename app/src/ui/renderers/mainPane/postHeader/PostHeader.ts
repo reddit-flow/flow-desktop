@@ -10,6 +10,7 @@ import * as upvoteImagePath    from './img/upvote.svg';
 import * as downvoteImagePath  from './img/downvote.svg';
 import * as clockImagePath     from './img/clock.svg';
 
+import * as Utils from '../../../../Utils';
 export class PostHeader extends Component {
 
     private _post: Submission;
@@ -24,8 +25,8 @@ export class PostHeader extends Component {
                 'dvi_path':   downvoteImagePath,
                 'cli_path':   clockImagePath,
                 'post_score': post.score,
-                'post_time':  post.created_utc,
-                'post_user':  post.author.name,
+                'post_time':  Utils.timeSince(post.created_utc),
+                'post_user':  'u/' + post.author.name,
                 'post_title': post.title
             }
         );

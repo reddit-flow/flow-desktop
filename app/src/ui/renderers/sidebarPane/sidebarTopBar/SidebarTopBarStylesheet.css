@@ -1,0 +1,8 @@
+#sidebar-top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
+    background-color: var(--default-background-color);
+}
