@@ -8,6 +8,7 @@ import * as WindowManager from './Window'
 
 import {MainContainerPane} from "./ui/renderers/mainPane/mainContainerPane/MainContainerPane";
 import {MainContentPane} from "./ui/renderers/mainPane/mainContentPane/MainContentPane";
+import {SidebarContentPane} from "./ui/renderers/sidebarPane/sidebarContentPane/SidebarContentPane";
 
 import * as globalStylesheet from "./ui/MainStylesheet.css"
 import {StylesheetManager} from "./ui/StylesheetManager";
@@ -18,8 +19,6 @@ const snoowrap = require('snoowrap');
 const fs = require('fs');
 
 const path = require('path');
-
-console.log(JSON.parse(fs.readFileSync(path.join(process.cwd(), "credentials.json"))));
 
 const r = new snoowrap (JSON.parse(fs.readFileSync(path.join(process.cwd(), "credentials.json"))));
 
@@ -33,7 +32,7 @@ function main() {
 
         r.getSubreddit('teenagers').getNew().then((it: Listing<Submission>) => {
             it.forEach((it: Submission) => {
-                (((FlowUI.children[0]).children.elementAtIndex(1)).children.elementAtIndex(1) as MainContentPane).addPost(it)
+                (((FlowUI.children[0]).child(1)).child(1) as MainContentPane).addPost(it)
             })
 
             FlowUI.children[1].update(true)
@@ -42,6 +41,12 @@ function main() {
             FlowUI.mountToElement(document.getElementById('main'))
         })
 
+    })
+
+    r.getSubscriptions().then((it: Listing<Subreddit>) => {
+        it.forEach((it: Subreddit) => {
+            (((FlowUI.children[0]).child(0)).child(1) as SidebarContentPane).addSubreddit(it)
+        })
     })
 
     WindowManager.load();

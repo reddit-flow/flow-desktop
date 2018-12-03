@@ -9,6 +9,10 @@ export class FlowUI {
         return this._rootChildren.toArray();
     }
 
+    static child(index: number) {
+        this._rootChildren.toArray().elementAtIndex(index);
+    }
+
     static addChild(child: Component) {
         this._rootChildren.add(child);
     }
