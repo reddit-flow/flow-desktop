@@ -6,12 +6,12 @@ import {FlowUI} from "./ui/FlowUI";
 
 import * as WindowManager from './Window'
 
-import {MainContainerPane} from "./ui/renderers/mainPane/mainContainerPane/MainContainerPane";
 import {MainContentPane} from "./ui/renderers/mainPane/mainContentPane/MainContentPane";
 import {SidebarContentPane} from "./ui/renderers/sidebarPane/sidebarContentPane/SidebarContentPane";
 
 import * as globalStylesheet from "./ui/MainStylesheet.css"
 import {StylesheetManager} from "./ui/StylesheetManager";
+
 import {RootContainer} from "./ui/renderers/RootContainer";
 
 const snoowrap = require('snoowrap');
@@ -43,7 +43,7 @@ function main() {
 
     })
 
-    r.getSubscriptions().then((it: Listing<Subreddit>) => {
+    r.getSubscriptions().fetchAll().then((it: Listing<Subreddit>) => {
         it.forEach((it: Subreddit) => {
             (((FlowUI.children[0]).child(0)).child(1) as SidebarContentPane).addSubreddit(it)
         })

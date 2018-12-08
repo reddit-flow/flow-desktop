@@ -12,7 +12,8 @@ module.exports = {
                     { loader: 'typings-for-css-modules-loader', options: {'modules': true, 'localIdentName': '[local]'} },
                 ]
             },
-            { test: /\.(png|jpg|gif|svg)$/, use: [{loader: 'url-loader', options: {}}]},
+            { test: /\.(svg)$/, use: [{loader: 'svg-inline-loader'}]},
+            { test: /\.(png|jpg|gif)$/, use: [{loader: 'url-loader', options: {}}]},
             { test: /\.dot$/, loader: "dot-loader", options: {}}
         ]
     },

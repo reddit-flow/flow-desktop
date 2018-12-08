@@ -1,62 +1,53 @@
-import {Submission} from 'snoowrap';
+import {Subreddit} from 'snoowrap';
 
 import {Component} from "../../../Component";
 
-import * as style from './PostHeaderStylesheet.css'
+import * as style from './SubscribedSubredditStylesheet.css'
 
-import * as postHeaderTemplate from './PostHeaderTemplate.dot';
+import * as postHeaderTemplate from './SubscribedSubredditTemplate.dot';
 
-import * as upvoteImagePath    from './img/upvote.svg';
-import * as downvoteImagePath  from './img/downvote.svg';
-import * as clockImagePath     from './img/clock.svg';
+export class SubscribedSubreddit extends Component {
 
-import * as Utils from '../../../../Utils';
-export class PostHeader extends Component {
+    private _subreddit: Subreddit;
 
-    private _post: Submission;
-
-    constructor(post: Submission) {
+    constructor(subreddit: Subreddit) {
 
         let returnElement = document.createElement('div');
 
         returnElement.innerHTML = postHeaderTemplate (
             {
-                'uvi_path':   upvoteImagePath,
-                'dvi_path':   downvoteImagePath,
-                'cli_path':   clockImagePath,
-                'post_score': post.score,
-                'post_time':  Utils.timeSince(post.created_utc),
-                'post_user':  'u/' + post.author.name,
-                'post_title': post.title
+                'sbi_path':    subreddit.banner_img,
+                'sub_name':    subreddit.display_name,
+                'subs_text':   subreddit.subscribers + " subs",
+                'online_text': subreddit.accounts_active + " online",
+                'sub_desc':    subreddit.public_description
             }
-        );
+        );-
 
         super(returnElement.firstElementChild, style)
 
-        this._post = post;
+        this._subreddit = subreddit;
 
     }
 
     public updateSelf(): Element {
         return postHeaderTemplate (
             {
-                'uvi_path':   upvoteImagePath,
-                'dvi_path':   downvoteImagePath,
-                'cli_path':   clockImagePath,
-                'post_score': this._post.score,
-                'post_time':  this._post.created_utc,
-                'post_user':  this._post.author.name,
-                'post_title': this._post.title
+                'sbi_path':    this._subreddit.banner_img,
+                'sub_name':    this._subreddit.display_name,
+                'subs_text':   this._subreddit.subscribers + " subs",
+                'online_text': this._subreddit.accounts_active + " online",
+                'sub_desc':    this._subreddit.public_description
             }
         );
     }
 
-    get post(): Submission {
-        return this._post;
+    get subreddit(): Subreddit {
+        return this._subreddit;
     }
 
-    set post(value: Submission) {
-        this._post = value;
+    set subreddit(value: Subreddit) {
+        this._subreddit = value;
     }
 
 }

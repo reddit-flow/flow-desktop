@@ -1,0 +1,9 @@
+<div class="votes">
+    <button class="upvote-button">
+        {{=it.uvi_svg}}
+    </button>
+    <div class="vote-counter">{{=it.post_score}}</div>
+    <button class="downvote-button">
+        {{=it.dvi_svg}}
+    </button>
+</div>

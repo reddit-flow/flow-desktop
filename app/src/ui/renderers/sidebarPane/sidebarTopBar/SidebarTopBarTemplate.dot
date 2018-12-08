@@ -1,11 +1,11 @@
 <div id="sidebar-top">
     <div id="subreddits-button">
-        <img src="{{=it.sbi_path}}" width="20" />
+        {{=it.sbi_svg}}
     </div>
     <div id="pm-button">
-        <img src="{{=it.pbi_path}}" width="25" />
+        {{=it.pbi_svg}}
     </div>
     <div id="notifications-button">
-        <img src="{{=it.nbi_path}}" width="25" />
+        {{=it.nbi_svg}}
     </div>
 </div>

@@ -15,9 +15,9 @@ export class SidebarTopBar extends Component {
         let returnElement = document.createElement('div');
 
         returnElement.innerHTML = sidebarTopBarTemplate ({
-            'sbi_path': subredditImagePath,
-            'pmi_path': pmImagePath,
-            'nbi_path': notifImagePath
+            'sbi_svg': subredditImagePath,
+            'pbi_svg': pmImagePath,
+            'nbi_svg': notifImagePath
         });
 
         super(returnElement.firstElementChild, style);

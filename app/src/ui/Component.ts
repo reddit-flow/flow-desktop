@@ -34,10 +34,22 @@ export abstract class Component {
        StylesheetManager.mountStylesheetIfAbsent(this.constructor.name, importedStylesheet)
     }
 
+    public bindEventListener(elem: HTMLElement, event: string, callback: ((this: GlobalEventHandlers, ev: Event) => any)) {
+        elem.addEventListener(event, callback.bind(this));
+    }
+
+    public getUniqueDOMChildElem(className: string): HTMLElement {
+        return (this.htmlElement.getElementsByClassName(className)[0] as HTMLElement);
+    }
+
     get children(): LinkedList<Component> {
         let tempReturn = new LinkedList<Component>()
         this._children.forEach(it => tempReturn.add(it))
         return tempReturn;
+    }
+
+    child(index: number): Component {
+        return this._children.elementAtIndex(index);
     }
 
     addChild(child: Component) {

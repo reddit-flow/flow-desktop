@@ -12,7 +12,7 @@ import * as sidebarContentPaneTemplate from './SidebarContentPaneTemplate.dot';
 
 export class SidebarContentPane extends Component {
 
-    private _subreddits = new LinkedList<Subreddit>
+    private _subreddits: LinkedList<Subreddit>
 
     constructor() {
 
@@ -21,6 +21,8 @@ export class SidebarContentPane extends Component {
         returnElement.innerHTML = sidebarContentPaneTemplate ({});
 
         super(returnElement.firstElementChild, style);
+
+        this._subreddits = new LinkedList<Subreddit>()
 
     }
 

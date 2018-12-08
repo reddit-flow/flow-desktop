@@ -2,7 +2,12 @@
 
     /* Variables for posts */
 
+    --post-ud-button-default_color: #898989;
+    --post-upvote-color: #FF4500;
+    --post-downvote-color: #8D97FF;
+
     --post-vote-count-color: #939393;
+
     --post-header-text-color: #555555;
     --post-header-background-color: #E1E1E1;
 
@@ -10,28 +15,6 @@
     margin-bottom: 0.5em;
     grid-template-columns: 5em auto;
 }
-
-.votes {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.upvote-button {}
-
-.vote-counter {
-    text-align: center;
-
-    color: var(--post-vote-count-color);
-
-    font-weight: bold;
-    font-size: 1.5em;
-
-    line-height: 1.6em;
-}
-
-.downvote-button {}
 
 .post-header-content {
     padding: 1em 1.2em;
@@ -65,8 +48,9 @@
 }
 
 .clock-icon {
-    display: inline;
-    height: 1em;
+    width: 1em;
+
+    stroke: #939393;
 }
 
 .post-time {
@@ -84,16 +68,6 @@
     color: #7f7f7f;
 }
 
-.user-flair {
-    margin-left: 0.4em;
-
-    padding: 0.1em 0.3em;
-    border-radius: 0.3em;
-
-    color: #ffffff;
-    background-color: #7f7f7f;
-}
-
 .post-header-line2 {
     display: flex;
     flex-direction: row;
@@ -106,17 +80,6 @@
 .post-title {
     font-size: 1.75em;
     font-weight: bold;
-}
-
-.post-flair {
-    padding: 0.4em 0.7em;
-    border-radius: 0.3em;
-
-    font-size: 0.8em;
-    font-weight: bold;
-
-    color: #ffffff;
-    background-color: #BD003A;
 }
 
 .post-header-buttons {

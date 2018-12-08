@@ -1,0 +1,55 @@
+.votes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.votes > * {
+    transition: all .35s linear;
+}
+
+.votes svg {
+    transition: inherit;
+}
+
+.upvote-button, .downvote-button {
+    border: none;
+    outline: none;
+    background: none;
+}
+
+/* Upvote/downvote highlighting stuff */
+
+.upvote-button svg, .downvote-button svg {
+    fill: var(--post-ud-button-default_color);
+}
+
+.votes.upvoted .upvote-button svg {
+    fill: var(--post-upvote-color);
+}
+
+.votes.upvoted div.vote-counter {
+    color: var(--post-upvote-color)
+}
+
+.votes.downvoted .downvote-button svg {
+    fill: var(--post-downvote-color);
+}
+
+.votes.downvoted div.vote-counter {
+    color: var(--post-downvote-color);
+}
+
+/* End of upvote/downvote highlighting stuff */
+
+.vote-counter {
+    text-align: center;
+
+    color: var(--post-vote-count-color);
+
+    font-weight: bold;
+    font-size: 1.5em;
+
+    line-height: 1.6em;
+}

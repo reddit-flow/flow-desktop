@@ -1,0 +1,14 @@
+<div class="subreddit">
+    <img class="banner-img" src="{{=it.sbi_path}}">
+    <div class="subreddit-info">
+        <div class="subreddit-top">
+            <span class="subreddit-name-sidebar">{{=it.sub_name}}</span>
+            <span class="subreddit-stats">
+                <span class="subreddit-stats-subs">{{=it.subs_text}}</span><span class="subreddit-stats-online">{{=it.online_text}}</span>
+            </span>
+        </div>
+        <p class="subreddit-description">
+            {{=it.sub_desc}}
+        </p>
+    </div>
+</div>

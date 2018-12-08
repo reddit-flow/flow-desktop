@@ -1,0 +1,1 @@
+<span class="user-flair">{{=it.flair_text}}</span>
